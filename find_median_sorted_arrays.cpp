@@ -1,5 +1,6 @@
 #include <chrono>
 #include <vector>
+#include <limits.h>
 #include <iostream>
 #include <algorithm>
 
@@ -8,26 +9,24 @@ using namespace std;
 
 class Solution {
 public:
-    // double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-    //     size_t len1 = nums1.size();
-    //     size_t len2 = nums2.size();
-    //     size_t fusion_size = len1+len2;
-    //     vector<int> fusion = vector<int>(fusion_size);
-    //     merge(nums1.begin(), nums1.end(), nums2.begin(), nums2.end(), fusion.begin());
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        size_t len1 = nums1.size();
+        size_t len2 = nums2.size();
+        size_t fusion_size = len1+len2;
+        vector<int> fusion = vector<int>(fusion_size);
+        merge(nums1.begin(), nums1.end(), nums2.begin(), nums2.end(), fusion.begin());
 
-    //     int center = fusion_size / 2;
-    //     double result;
-    //     if((fusion_size % 2) == 0){
-    //         return (double)(fusion[center-1] + fusion[center]) / 2;
-    //         //return static_cast<double>(fusion[center-1] + fusion[center]) / 2;
-    //     }
-    //     else {
-    //         return (double)(fusion[center]);
-    //         //return static_cast<double>(fusion[center]);
-    //     }
-    // }
-
-    
+        int center = fusion_size / 2;
+        double result;
+        if((fusion_size % 2) == 0){
+            return (double)(fusion[center-1] + fusion[center]) / 2;
+            //return static_cast<double>(fusion[center-1] + fusion[center]) / 2;
+        }
+        else {
+            return (double)(fusion[center]);
+            //return static_cast<double>(fusion[center]);
+        }
+    }
 };
 
 int main(){
